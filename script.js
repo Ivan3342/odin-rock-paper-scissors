@@ -47,12 +47,12 @@ for (let i = 0; i < 5; i++) {
     console.log("Computer Score: " + computerScore);
 }
 
-const title = document.getElementById("title");
+const hOne = document.getElementById('title');
 
-if (computerScore > humanScore) {
-    title.innerText("Winner: Computer!");
+if (computerScore > humanScore) { /*Winner: Human! */
+    console.log("Winner: Computer!")
 } else if (computerScore < humanScore) {
-    title.innerText("Winner: Human!");
+    console.log("Winner: Human!");
 } else {
-    title.innerText("Draw!");
+    console.log("Draw");
 }
