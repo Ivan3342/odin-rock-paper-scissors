@@ -42,7 +42,17 @@ for (let i = 0; i < 5; i++) {
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
     console.log("Human Choice: " + humanSelection);
+    console.log("Human Score: " + humanScore);
     console.log("Computer Choice: " + computerSelection);
-    /*console.log("Human Score: " + humanScore);
-    console.log("Computer Score: " + computerScore); */
+    console.log("Computer Score: " + computerScore);
+}
+
+const title = document.getElementById("title");
+
+if (computerScore > humanScore) {
+    title.innerText("Winner: Computer!");
+} else if (computerScore < humanScore) {
+    title.innerText("Winner: Human!");
+} else {
+    title.innerText("Draw!");
 }
