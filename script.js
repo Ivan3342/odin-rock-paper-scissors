@@ -1,17 +1,48 @@
 function getComputerChoice() {
-    const choices = ["Rock", "Paper", "Scissors"];
-    return choices[Math.floor(Math.random() * 3)];
+    const choices = ["rock", "paper", "scissors"];
+    return choices[Math.floor(Math.random() * 3)].toLowerCase();
 }
 
 function getHumanChoice() {
     let choice = prompt("Enter a choice: Rock, Paper or Scissors?");
-    if (choice == "Rock" || choice == "Paper" || choice == "Scissors") {
-        return choice;
+    let running = true;
+    while (running) {
+        if (choice == "rock" || choice == "paper" || choice == "scissors") {
+            return choice;
+            running = 1;
+        }
+        else {
+            choice = prompt("Invalid choice. Try again!");
+        }
     }
-    else {
-        prompt("Invalid choice.");
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanSelection, computerSelection) {
+    if (humanSelection == "rock" && computerSelection == "scissors") {
+        humanScore++;
+    } else if (humanSelection == "scissors" && computerSelection == "paper") {
+        humanScore++;
+    } else if (humanSelection == "paper" && computerSelection == "rock") {
+        humanScore++;
+    } else if (humanSelection == "rock" && computerSelection == "paper") {
+        computerScore++;
+    } else if (humanSelection == "paper" && computerSelection == "scissors") {
+        computerScore++;
+    } else if (humanSelection == "paper" && computerSelection == "rock") {
+        computerScore++;
     }
 }
 
 
-console.log(getComputerChoice());
+for (let i = 0; i < 5; i++) {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    console.log("Human Choice: " + humanSelection);
+    console.log("Computer Choice: " + computerSelection);
+    /*console.log("Human Score: " + humanScore);
+    console.log("Computer Score: " + computerScore); */
+}
