@@ -1,10 +1,10 @@
 function getComputerChoice() {
     const choices = ["rock", "paper", "scissors"];
-    return choices[Math.floor(Math.random() * 3)].toLowerCase();
+    return choices[Math.floor(Math.random() * 3)];
 }
 
 function getHumanChoice() {
-    let choice = prompt("Enter a choice: Rock, Paper or Scissors?");
+    let choice = prompt("Enter a choice: Rock, Paper or Scissors?").toLowerCase();
     let running = true;
     while (running) {
         if (choice == "rock" || choice == "paper" || choice == "scissors") {
@@ -38,8 +38,8 @@ function playRound(humanSelection, computerSelection) {
 
 
 for (let i = 0; i < 5; i++) {
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
     console.log("Human Choice: " + humanSelection);
     console.log("Computer Choice: " + computerSelection);
