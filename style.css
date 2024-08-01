@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0px;
+    padding: 0x;
+    font-family: "Work Sans";
+}
+.title {
+    text-align: center;
+    font-weight: 300;
+    padding: 20px;
+    margin: 0;
+    color: antiquewhite;
+    background-color: black;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 30px;
+}
+.btn {
+    font-family: "Work Sans";
+    padding: 8px 16px;
+    border: none;
+    background-color: black;
+    color: antiquewhite;
+    cursor: pointer;
+}
