@@ -1,32 +1,40 @@
-function getComputerChoice() {
-    const choices = ["rock", "paper", "scissors"];
-    return choices[Math.floor(Math.random() * 3)];
-}
+const display = document.querySelector("#display");
 
-function getHumanChoice() {
-    let choice = prompt("Enter a choice: Rock, Paper or Scissors?").toLowerCase();
-    let running = true;
-    while (running) {
-        if (choice == "rock" || choice == "paper" || choice == "scissors") {
-            return choice;
-            running = 1;
-        }
-        else {
-            choice = prompt("Invalid choice. Try again!");
-        }
-    }
-}
+let choice;
+
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
+rock.addEventListener("click", function() {
+    choice = "rock";
+    console.log(choice);
+} )
+paper.addEventListener("click", function() {
+    choice = "paper";
+    console.log(choice);
+} )
+scissors.addEventListener("click", function() {
+    choice = "scissors";
+    console.log(choice);
+} )
 
 let humanScore = 0;
 let computerScore = 0;
 
+function getComputerChoice() {
+    const choices = ["rock", "paper", "scissors"];
+    let computerChoice = choices[Math.floor(Math.random() * 3)];
+    display.appendChild(document.createElement("h1").textContent = computerChoice);
+}
+
 function playRound(humanSelection, computerSelection) {
     if (humanSelection == "rock" && computerSelection == "scissors") {
-        humanScore++;
+        playerScore++;
     } else if (humanSelection == "scissors" && computerSelection == "paper") {
-        humanScore++;
+        playerScore++;
     } else if (humanSelection == "paper" && computerSelection == "rock") {
-        humanScore++;
+        playerScore++;
     } else if (humanSelection == "rock" && computerSelection == "paper") {
         computerScore++;
     } else if (humanSelection == "paper" && computerSelection == "scissors") {
@@ -36,23 +44,25 @@ function playRound(humanSelection, computerSelection) {
     }
 }
 
-
-for (let i = 0; i < 5; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    console.log("Human Choice: " + humanSelection);
-    console.log("Human Score: " + humanScore);
-    console.log("Computer Choice: " + computerSelection);
-    console.log("Computer Score: " + computerScore);
+function getResults(humanScore, computerScore) {
+    if (computerScore > humanScore) { /*Winner: Human! */
+        return "Winner: Computer!";
+    } else if (computerScore < humanScore) {
+        return "Winner: Human!";
+    } else {
+        return "Draw!";
+    }
 }
 
-const hOne = document.getElementById('title');
+function displayResults(results) {
+    const winner = document.createElement("h1");
+    winner.textContent = results;
+    display.appendChild(winner);
+}
 
-if (computerScore > humanScore) { /*Winner: Human! */
-    console.log("Winner: Computer!")
-} else if (computerScore < humanScore) {
-    console.log("Winner: Human!");
-} else {
-    console.log("Draw");
+for (let i = 0; i < 5; i++) {
+    computerChoice = getComputerChoice();
+    playRound(choice, computerChoice);
+    let results = getResults(humanScore, computerScore);
+    displayResults(results);
 }

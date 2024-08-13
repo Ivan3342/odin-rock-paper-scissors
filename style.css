@@ -27,5 +27,62 @@ body {
     border: none;
     background-color: black;
     color: antiquewhite;
+    font-size: 18pt;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: .250s ease-out;
+}
+
+.btn:hover {
     cursor: pointer;
+    background: white;
+    border: 1px solid black;
+    color: black;
+
+}
+
+.display {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+    text-align: center;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 54px;
+}
+
+.start {
+    font-family: "Ubuntu";
+    font-size: 32px;
+    font-weight: 800;
+    border: none;
+    padding: 10px 30px;
+    background-color: black;
+    color: antiquewhite;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: .250s ease-out;
+}
+
+.start:hover {
+    cursor: pointer;
+    background: white;
+    border: 1px solid black;
+    color: black;
+
+}
+
+.winner {
+    text-align: center;
 }
