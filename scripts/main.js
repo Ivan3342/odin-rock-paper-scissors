@@ -7,4 +7,20 @@ function getComputerChoice() {
     return computerChoices[choiceNumber];
 }
 
-console.log(getComputerChoice());
+function getHumanChoice() {
+    const humanChoice = prompt('Enter your move: rock, paper, scissors?');
+
+    if(humanChoice) {
+        if(humanChoice.toLowerCase() === 'rock' || humanChoice.toLowerCase() === 'paper' || humanChoice.toLowerCase() === 'scissors') {
+            return humanChoice.toLowerCase();
+        }
+        else {
+            console.log('Error: Wrong input!');
+        }
+    }
+    else {
+        console.log('Error: User\'s choice is null!');
+    }
+}
+
+getHumanChoice();
