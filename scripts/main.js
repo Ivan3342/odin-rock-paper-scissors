@@ -66,4 +66,21 @@ function playRound() {
     }
 }
 
-playRound();
+function playGame() {
+    for(let i = 0; i < 5; i++) {
+        playRound();
+    }
+
+    console.log(`\nFinal score: \nHuman: ${humanScore}\nComputer: ${computerScore}`);
+    if(humanScore > computerScore) {
+        console.log('Human WINS!!!');
+    }
+    else if (humanScore < computerScore){
+        console.log('Computer WINS!!!');
+    }
+    else {
+        console.log('It\'s a DRAW!!!');
+    }
+}
+
+playGame();
